@@ -129,11 +129,26 @@ const ContactUs = () => {
           </div>
         )}
         <div className="contact-info">
-          <div className="company-info">
-            <h5>Curated Codes Technologies Pvt. Ltd.</h5>
-            <p>info@curatedcodes.in</p>
-            <p>+91 8962132605</p>
-          </div>
+         <div className="company-info">
+  <h5>Curated Codes Technologies Pvt. Ltd.</h5>
+
+  <p>
+     <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=info@curatedcodes.in"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-link"
+  >
+    info@curatedcodes.in
+  </a>
+  </p>
+
+  <p>
+    <a href="tel:+918962132605" className="contact-link">
+      +91 8962132605
+    </a>
+  </p>
+</div>
           <div className="info-title">
             <a href="https://wa.me/918962132605" className="whatsapp-button" target="_blank" rel="noopener noreferrer">
               <img src="https://img.icons8.com/ios-filled/20/25D366/whatsapp.png" alt="WhatsApp" />

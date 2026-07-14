@@ -10,6 +10,10 @@ import lawful from '../images/lawful.png';
 import osint from '../images/os.webp';
 import bgImage from '../images/image10.webp';
 import circleImage from '../images/CC.webp';
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import newBanner from "../images/newbanner.png";
+
 
 const HomePage = () => {
   const industries = [
@@ -120,54 +124,125 @@ const HomePage = () => {
     slidesToScroll: 1,
     arrows: false,
   };
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    scale: 0.95,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
 
   return (
     <>
-      <section>
-        <div className="hero-banner">
-          <h2 className="hero-heading">
-            Operational Intelligence Starts Here
-          </h2>
-          <div className="image-container">
-    <img src={circleImage} alt="Logo" className="center-logo" />
-            <img src={bgImage} alt="Background" className="background-image" />
-          </div>
-        </div>
-        <h2 className="heros-heading">
-          AI-powered Intelligence Solutions for Every Critical Situation
-        </h2>
-      </section>
+  <section className="hero-banner">
+
+  <div className="hero-overlay">
+
+    <motion.h1
+      className="hero-heading"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      Operational Intelligence Starts Here
+    </motion.h1>
+
+    <div className="hero-image-wrapper">
+
+      <img
+        src={newBanner}
+        alt="Hero"
+        className="hero-main-image"
+      />
+
+      <img
+        src={circleImage}
+        alt="Logo"
+        className="center-logo"
+      />
+
+    </div>
+
+    <h2 className="heros-heading">
+      AI-powered Intelligence Solutions for Every Critical Situation
+    </h2>
+
+  </div>
+
+</section>
       <section>
         <div className="basics-section">
-          <h2 className="section-title">Approaches we take to empower law enforcement</h2>
-          <div className="basics-grid">
-            {basics.map((item, index) => (
-              <div key={index} className="basics-item">
-                <h3 className="basics-title">{item.title}</h3>
-                <p className="basics-description">{item.description}</p>
-              </div>
-            ))}
-          </div>
+       <motion.h2
+  className="section-title"
+  initial={{ opacity: 0, y: -40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  Approaches we take to empower law enforcement
+</motion.h2>
+         <motion.div
+  className="basics-grid"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+>
+  {basics.map((item, index) => (
+    <motion.div
+      key={index}
+      className="basics-item"
+      variants={itemVariants}
+      whileHover={{
+        y: -10,
+        scale: 1.04,
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      <h3 className="basics-title">{item.title}</h3>
+      <p className="basics-description">{item.description}</p>
+    </motion.div>
+  ))}
+</motion.div>
+</div>
+</section>
+
+<section>
+  <div className="industries-section">
+    <h2 className="industries-title">Industries we serve</h2>
+
+    <div className="industries-grid">
+      {industries.map((industry, index) => (
+        <div
+          key={index}
+          className="industry-circle"
+          style={{
+            backgroundColor: industry.color,
+            color: industry.textColor,
+          }}
+        >
+          {industry.name}
         </div>
-      </section>
-      <section>
-        <div className="industries-section">
-          <h2 className="industries-title">Industries we serve</h2>
-          <div className="industries-grid">
-            {industries.map((industry, index) => (
-              <div
-                key={index}
-                className="industry-circle"
-                style={{
-                  backgroundColor: industry.color,
-                  color: industry.textColor,
-                }}
-              >
-                {industry.name}
-              </div>
-            ))}
-          </div>
+      ))}
+    </div>
           <div className="industries-slider">
             <Slider {...settings}>
               {industries.map((industry, index) => (
@@ -197,44 +272,103 @@ const HomePage = () => {
             className={`service-row ${index % 2 === 1 ? 'reverse bg-grey' : 'bg-white'}`}
             key={index}
           >
-            <div className="service-inner">
-              <div className="service-image-container">
-                <div className="icon-square-box">
-                  <img src={service.icon} alt={service.title} />
-                </div>
-              </div>
-              <div className="service-content">
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul>
-                  {service.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+    <div className="service-inner">
+
+  <motion.div
+    className="service-image-container"
+    initial={{ opacity: 0, x: index % 2 === 0 ? -120 : 120 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1.2, ease: "easeOut" }}
+    viewport={{ once: true, amount: 0.3 }}
+  >
+    <div className="icon-square-box">
+      <img src={service.icon} alt={service.title} />
+    </div>
+  </motion.div>
+
+  <motion.div
+    className="service-content"
+    initial={{ opacity: 0, x: index % 2 === 0 ? 120 : -120 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+    viewport={{ once: true, amount: 0.3 }}
+  >
+    <h3>{service.title}</h3>
+
+    <p>{service.description}</p>
+
+    <ul>
+      {service.features.map((feature, i) => (
+        <li key={i}>{feature}</li>
+      ))}
+    </ul>
+  </motion.div>
+
+</div>
           </div>
         ))}
-      </section>
+      </section>    
 
+     <section className="about-section">
 
-      <section className="about-section">
-        <h2 className="about-title">About us</h2>
-        <div className="about-content">
-          <div className="about-box">
-            <h3>Company</h3>
-            <p>
-              Curated Codes is a digital engineering firm empowering law enforcement agencies with AI-driven tools and secure platforms. We help accelerate investigations, enhance intelligence gathering, and support national security through data-driven insights and real-time collaboration.
-            </p>
-          </div>
-          <div className="about-box">
-            <h3>People</h3>
-            <p>
-              We are a team of industry experts with deep, cross-domain experience in cutting-edge technologies. Every solution we build is precisely curated to meet the unique operational and security needs of law enforcement and intelligence agencies.
-            </p>
-          </div>
-        </div>
-      </section>
+  <motion.h2
+    className="about-title"
+    initial={{ opacity: 0, y: -40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    About us
+  </motion.h2>
+
+  <motion.div
+    className="about-content"
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.2 }}
+  >
+
+    <motion.div
+      className="about-box"
+      variants={itemVariants}
+      whileHover={{
+        y: -10,
+        scale: 1.04,
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      <h3>Company</h3>
+      <p>
+        Curated Codes is a digital engineering firm empowering law
+        enforcement agencies with AI-driven tools and secure platforms.
+        We help accelerate investigations, enhance intelligence gathering,
+        and support national security through data-driven insights and
+        real-time collaboration.
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="about-box"
+      variants={itemVariants}
+      whileHover={{
+        y: -10,
+        scale: 1.04,
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      <h3>People</h3>
+      <p>
+        We are a team of industry experts with deep, cross-domain
+        experience in cutting-edge technologies. Every solution we build
+        is precisely curated to meet the unique operational and security
+        needs of law enforcement and intelligence agencies.
+      </p>
+    </motion.div>
+
+  </motion.div>
+
+</section>
       <Contact />
       <footer className="footer">
         <div className="social-icons">

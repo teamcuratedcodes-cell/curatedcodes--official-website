@@ -1,14 +1,14 @@
 .contact-section {
   padding: 40px 0;
-  background-color: #f0f0f0;
+  background-color: #121212;
   font-family: 'Inter', sans-serif;
   text-align: center;
 }
 
 .contact-title {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 300;
-  color: #002244;
+  color: #cf913a;
   margin-bottom: 30px;
   position: relative;
   font-family: "Noto Sans", Arial, sans-serif;
@@ -19,7 +19,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background-color: #000;
+  background-color: #cf913a;
   margin: 12px auto 0;
   border-radius: 2px;
 }
@@ -56,17 +56,18 @@
 .contact-form textarea {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid #ccc;
+  border: 2px solid #cf913a;
   border-radius: 6px;
   font-size: 16px;
-  background-color: #fff;
+  color: white;
+  background-color: #121212;
   font-family: inherit;
 }
 
 .form-button {
   background: transparent;
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid #cf913a;
+  color: #cf913a;
   padding: 8px 30px;
   font-weight: 600;
   text-transform: uppercase;
@@ -115,14 +116,14 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background-color: #e6f4ea;
-  color: #000;
+  background-color: #121212;
+  color: #cf913a;
   padding: 10px 16px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 200;
   border-radius: 6px;
   text-decoration: none;
-  border: 1px solid #25D366;
+  border: 3px solid #cf913a;
   margin-bottom: 30px;
   font-family: "Noto Sans", Arial, sans-serif;
 }
@@ -137,21 +138,23 @@
 }
 
 .company-info h5 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 300;
-  color: #000;
+  color: #cf913a;
   margin-bottom: 6px;
   font-family: "Noto Sans", Arial, sans-serif;
 }
 
 .company-info p {
   font-size: 16px;
-  color: #000;
+  color: white;
+  padding: 5px;
   margin: 2px 0;
   font-family: "Noto Sans", Arial, sans-serif;
 }
 .thank-you-message {
   justify-content: center;
+  color: #cf913a;
   text-align: center;
   padding: 40px 20px;
   font-family: "Noto Sans", Arial, sans-serif;
@@ -310,4 +313,13 @@
   .thank-you-message p {
     font-size: 14px;
   }
+}
+.contact-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #d89b32; /* ya tumhara theme color */
 }
