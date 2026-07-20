@@ -1055,3 +1055,16 @@ font-size:.9rem;
   }
 
 }
+/* Desktop Only */
+@media (min-width: 992px) {
+
+  .hero-heading {
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .hero-image-wrapper {
+    height: 68vh;
+    max-height: 620px;
+  }
+
+}
